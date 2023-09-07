@@ -1,14 +1,13 @@
-/*Program to print a sentnce using the printf() function*/
 #include <stdio.h>
 
 /**
- * main -  this is the main function in the code
- * void: tells us that the main function ccepts no argumnets
- * Return: 0 if code is succesful
+ * main - this is the funcion housing all other functions in c
+ * void: shows us that there is no argument to be passed to the function
+ * Return: 0 if the code is succesful
 */
 
 int main(void)
 {
-	printf("with proper grammar, but the outcome is a piece of art,\n");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
