@@ -1,31 +1,48 @@
 #include <stdio.h>
 
 /**
-  * main - Prints the first 52 fibonacci numbers
-  *
-  * Return: Nothing!
-  */
+ * main - function that prints the first 98 fibonacci numbers
+ * Return: 0.
+ */
+
 int main(void)
 {
-	int i = 0;
-	long j = 1, k = 2;
+	int counter, overflow;
+	unsigned long a = 1;
+	unsigned long b = 1;
+	unsigned long sum = 0;
+	long a_head, a_tail, b_head, b_tail, sum_head, sum_tail;
 
-	while (i < 100)
+	printf("1");
+
+	for (counter = 2; counter < 93; counter++)
 	{
-		if (i == 0)
-			printf("%ld", j);
-		else if (i == 1)
-			printf(", %ld", k);
-		else
-		{
-			k += j;
-			j = k - j;
-			printf(", %ld", k);
-		}
+		sum = a + b;
+		a = b;
+		b = sum;
+		printf(", %lu", sum);
+	}
 
-		++i;
+	a_head = a / 1000000000;
+	a_tail = a % 1000000000;
+	b_head = b / 1000000000;
+	b_tail = b % 1000000000;
+
+	for (; counter < 99; counter++)
+	{
+		overflow = (a_tail + b_tail) / 1000000000;
+		sum_tail = (a_tail + b_tail) - (1000000000 * overflow);
+		sum_head = (a_head + b_head) + overflow;
+
+		printf(", %lu%lu", sum_head, sum_tail);
+
+		a_head = b_head;
+		a_tail = b_tail;
+		b_head = sum_head;
+		b_tail = sum_tail;
 	}
 
 	printf("\n");
+
 	return (0);
 }
